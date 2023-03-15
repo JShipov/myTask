@@ -1,38 +1,341 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+.display {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 80px;
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+ /*NavBar*/
+.nav-item {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+}
+.nav-bar {
+  padding: 1rem;
+  transition: background-color 0.3s ease-in-out;
+  text-decoration: none;
+  background-color: #0e76a8;
+}
+
+/*Footer*/
+.footer {
+  font-family: 'Poppins', sans-serif;
+  background: rgba(204, 238, 255, 0.1);
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  padding: 0;
+  left: 0;
+}
+.footer-text {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+.footer-item {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+.footer-item a {
+  color: #757575;
+  text-decoration: none;
+}
+.hr {
+  position: relative;
+  width: 100%;
+}
+
+.social-media img {
+  margin-right: 25px;
+}
+
+/*Carousel */
+
+/*Slide1*/
+
+.carousel-caption {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 56px;
+  display: flex;
+
+}
+
+.carousel-caption .carousel.text,
+.carousel-caption .text {
+  margin-left: auto;
+  text-align: right;
+  top: 30%;
+  max-width: calc(100% - 600px - 24px); /* ширина контейнера за вычетом ширины прямоугольников и отступов */
+}
+.carousel-caption h6 {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 56px;
+  color: #212121;
+}
+
+.carousel-caption p{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
   text-align: center;
+  color: #757575;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Slide2*/
+.carousel-caption .row {
+  width: 100%;
+  height: 80%;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+.carousel-caption  {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 56px;
+  position: absolute;
+  top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/*Square*/
+.square {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 32px 24px;
+  gap: 19px;
+  width: 280px;
+  height: 251px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  flex: 0 0 calc(25% - 30px);
+  margin: 15px;
+}
+
+.square h6 {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  color: #212121;
+}
+
+.square p {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #616161;
+}
+
+/*Rectangle*/
+
+.rectangle {
+  display: flex;
+  text-align: center;
+  height: 100%;
+}
+
+.rectangle p {
+  font-family: 'Poppins',sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #9E9E9E;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 12px;
+
+}
+.first-rectangle {
+  position: absolute;
+  width: 258px;
+  height: 72px;
+  left: -50px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 32px rgba(0, 37, 122, 0.1);
+  border-radius: 8px;
+  top: 15%;
 }
 
-.App-link {
-  color: #61dafb;
+.second-rectangle {
+  position: absolute;
+  width: 258px;
+  height: 72px;
+  left: -50px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 32px rgba(0, 37, 122, 0.1);
+  border-radius: 8px;
+  top: 55%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.third-rectangle {
+  position: absolute;
+  width: 258px;
+  height: 72px;
+  left: 300px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 32px rgba(0, 37, 122, 0.1);
+  border-radius: 8px;
+  top: 30%;
 }
+
+.fourth-rectangle {
+  position: absolute;
+  width: 258px;
+  height: 72px;
+  left: 300px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 32px rgba(0, 37, 122, 0.1);
+  border-radius: 8px;
+  top: 70%;
+}
+
+/*About us*/
+
+.about us {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+}
+
+.btn-about {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+  width: 180px;
+  height: 40px;
+  background: #FFFFFF;
+  border: 1px solid #007AFF;
+  border-radius: 8px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  text-decoration: none;
+}
+
+/*Browse Job Category*/
+
+.btn-custom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+  margin-top: 30px;
+  width: 280px;
+  height: 104px;
+  left: 0px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 32px rgba(0, 37, 122, 0.1);
+  border-radius: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  color: #212121;
+}
+
+.btn-custom:hover {
+  background-color: #007AFF;
+  border-color: #007AFF;
+  color: #fff;
+}
+
+.text-style {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  color: #9E9E9E;
+}
+
+
+/*FAQ*/
+
+#accordionFlushExample {
+  width: 588px; /* Set the width of the accordion */
+  margin: 0 auto; /* Center the accordion horizontally */
+}
+
+.accordion-item {
+  font-family: 'Poppins', sans-serif;
+  width: 588px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  border: none; /* Remove the border to create a box-like appearance */
+  margin-bottom: 10px; /* Add some space between the accordion items */
+}
+
+.accordion-button {
+  background-color: #f8f9fa; /* Set the background color of the button */
+  color: #212529; /* Set the text color of the button */
+  width: 100%; /* Make the button fill the entire width of the item */
+  text-align: left; /* Align the text to the left */
+  padding: 15px; /* Add some padding to the button */
+  border: none; /* Remove the border to create a box-like appearance */
+}
+
+.accordion-button:focus {
+  outline: none; /* Remove the outline when the button is in focus */
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
