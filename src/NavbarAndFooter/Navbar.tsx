@@ -1,6 +1,23 @@
 import React from "react";
-
+import {useOktaAuth} from "@okta/okta-react";
+import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
+
+    const {oktaAuth, authState} = useOktaAuth();
+    const navigate = useNavigate();
+
+    const handleLogOut = async ()  => oktaAuth.signOut();
+
+    console.log(authState);
+
+    const handleSignUpClick = () => {
+        navigate('/signup');
+    };
+
+    const handleLogInClick = () => {
+        navigate('/login')
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light py-3">
             <div className="container-fluid">
@@ -33,13 +50,17 @@ export const Navbar = () => {
                     </ul>
                     <div className="d-flex">
                         <ul className="navbar-nav ms-auto">
-                            <li className="nav-item m-1">
-                                <a type="button" className="btn btn-white text-primary" data-bs-toggle="button" href="#">Login</a>
+                            {!authState?.isAuthenticated ? <li className="nav-item m-1">
+                                <button type="button" className="btn btn-white text-primary" onClick={handleLogInClick}>Log in</button>
                             </li>
+                            :
+                                <button type="button" className="btn btn-white text-primary" onClick={handleLogOut}>LogOut</button>
+                            }
+
                         </ul>
                         <ul className="navbar-nav ms-3">
                             <li className="nav-item m-1">
-                                <a type='button' className='btn' href="#">Sign up</a>
+                                <button type="button" className="btn" onClick={handleSignUpClick}>Sign up</button>
                             </li>
                         </ul>
                     </div>

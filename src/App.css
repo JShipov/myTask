@@ -330,6 +330,85 @@
   outline: none; /* Remove the outline when the button is in focus */
 }
 
+
+/*SignUp*/
+.signup-text {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #424242;
+}
+
+.signup-button {
+  width: 380px;
+  height: 48px;
+  background: rgba(0, 122, 255, 0.5);
+  border-radius: 8px;
+}
+
+/*Login*/
+
+#okta-sign-in.auth-container.main-container {
+  border-radius: 24px;
+}
+
+#okta-sign-in.auth-container .okta-sign-in-header {
+  border-radius: 8px;
+}
+#okta-sign-in.auth-container .o-form-head {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 56px;
+  color: #212121;
+}
+#okta-sign-in.auth-container a.link:link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #212121;
+}
+
+#okta-sign-in {
+  position: absolute;
+  left: 30%;
+  top: 80%;
+  border-radius: 24px;
+}
+
+#okta-sign-in.auth-container .button-primary {
+  background: #007AFF;
+  border-radius: 8px;
+  border: none;
+}
+
+#okta-sign-in.auth-container .button-primary:hover {
+  background: rgba(0, 122, 255, 0.5) !important;
+  border-radius: 8px;
+}
+
+#okta-sign-in.auth-container .btn-customAuth {
+  background: #3498db !important; /* Голубой цвет */
+  color: #212121; /* Белый текст */
+  border-radius: 8px !important;
+  border: 1px solid #E0E0E0;
+}
+#okta-sign-in.auth-container .btn-customAuth:hover {
+  opacity: 50%;
+  background: #3498db; /* Белый цвет при наведении курсора */
+}
+
+.login-image {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 132px;
+  top: 30%;
+}
+
 .dark-overlay {
   background-color: rgba(0, 0, 0, 0.35);
   position: absolute;
