@@ -29,6 +29,14 @@ export const SignUp = () => {
                         <label htmlFor="confirm-password">Confirm Password:</label>
                         <input type="password" className="form-control" placeholder="Repeat the password"/>
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="user-type">User Type:</label>
+                        <select className="form-control" id="user-type">
+                            <option value="" disabled selected>Please choose a user type</option>
+                            <option value="customer">Customer (create a task)</option>
+                            <option value="freelancer">Freelancer (take a task)</option>
+                        </select>
+                    </div>
                     <div className="form-group d-flex justify-content-center">
                         <button type="submit" className="btn mt-4 signup-button">Create an account</button>
                     </div>
