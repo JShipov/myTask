@@ -25,7 +25,7 @@ const MainApp = () => {
             {showNavbarAndFooter && <Navbar />}
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signup" element={<SignUp/>} />
                 <Route path="/login" element={<LoginWidget config={OktaConfig} />} />
             </Routes>
             {showNavbarAndFooter && <Footer />}
