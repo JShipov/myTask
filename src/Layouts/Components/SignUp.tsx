@@ -1,47 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
+type FormData = {
+    username: string;
+    password: string;
+    email: string;
+    role: { id: number } | '';
+};
 export const SignUp = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        userType: '',
-    });
+    const navigate = useNavigate();
+    const [formData, setFormData] = useState<FormData>({ username: '', password: '', email: '', role: '' });
+    const [error, setError] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
+    const BASE_API = 'http://localhost:8080/api';
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        let value: string | { id: number } = event.target.value;
+
+        if (event.target.name === "role") {
+            value = { id: Number(event.target.value) };
+        }
+
+        setFormData({ ...formData, [event.target.name]: value as any });
     };
 
-    const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         try {
-            const response = await fetch('http://localhost:8070/api/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                alert('Registration complete successfully');
+            const response = await axios.post(`${BASE_API}/users`, formData);
+            console.log(response);
+            // Обработка успешной регистрации
+            setSuccessMessage('Registration successful! Please log in.');
+            setError('');
+            navigate('/login');
+        } catch (error: any) {
+            if (error.response) {
+                console.log(error.response.data);
+                console.log(error.response.status);
+                console.log(error.response.headers);
+            } else if (error.request) {
+                console.log(error.request);
             } else {
-                alert('Registration error: ${data.message}');
+                console.log('Error', error.message);
             }
-        } catch (error) {
-            alert('Connection error. Please, try again later');
+            console.log(error.config);
+
+            setError('An error occurred during registration. Please try again.');
+            setSuccessMessage(''); // clear any success messages
         }
     };
-
 
     return (
         <div className="signup-container d-flex justify-content-center align-items-center vh-100">
@@ -52,15 +60,11 @@ export const SignUp = () => {
                 <h1 className="d-flex justify-content-center">Sign Up as a customer</h1>
                 <form className="signup-text" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="first-name">First name:</label>
-                        <input type="text" name="firstName" className="form-control" placeholder="Enter your first name" value={formData.firstName} onChange={handleChange}/>
+                        <label htmlFor="username">Username:</label>
+                        <input type="text" name="username" className="form-control" placeholder="Enter your username" value={formData.username} onChange={handleChange}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="last-name">Last name:</label>
-                        <input type="text" name="lastName" className="form-control" placeholder="Enter your last name" value={formData.lastName} onChange={handleChange}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="email">Email address</label>
+                        <label htmlFor="email">Email address:</label>
                         <input type="text" name="email" className="form-control" placeholder="Enter your email" value={formData.email} onChange={handleChange}/>
                     </div>
                     <div className="form-group">
@@ -68,15 +72,11 @@ export const SignUp = () => {
                         <input type="password" name="password" className="form-control" placeholder="Create a password (8 character)" value={formData.password} onChange={handleChange}/>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="confirm-password">Confirm Password:</label>
-                        <input type="password" name="confirmPassword" className="form-control" placeholder="Repeat the password" value={formData.confirmPassword} onChange={handleChange}/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="user-type">User Type:</label>
-                        <select className="form-control" id="user-type" name="userType" value={formData.userType} onChange={handleSelectChange} defaultValue="">
-                            <option value="" disabled>Please choose a user type</option>
-                            <option value="customer">Customer (create a task)</option>
-                            <option value="freelancer">Freelancer (take a task)</option>
+                        <label htmlFor="role">Role:</label>
+                        <select className="form-control" id="role" name="role" value={formData.role !== '' ? formData.role.id : ''} onChange={handleChange} defaultValue="">
+                            <option value="" disabled>Please choose a role</option>
+                            <option value="1">Freelancer (take a task)</option>
+                            <option value="2">Customer (take a task)</option>
                         </select>
                     </div>
                     <div className="form-group d-flex justify-content-center">
@@ -89,4 +89,3 @@ export const SignUp = () => {
 };
 
 export default SignUp;
-

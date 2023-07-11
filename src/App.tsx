@@ -5,16 +5,10 @@ import {Navbar} from "./NavbarAndFooter/Navbar";
 import {Home} from "./Layouts/Home";
 import {Footer} from "./NavbarAndFooter/Footer";
 import {SignUp} from "./Layouts/Components/SignUp";
-import {OktaConfig} from "./Lib/OktaConfig";
-import {OktaAuth} from '@okta/okta-auth-js';
-import LoginWidget from "./Auth/LoginWidget";
 import {Security} from '@okta/okta-react';
+import {Login} from "./Layouts/Components/Login";
 
-const oktaAuth = new OktaAuth(OktaConfig);
 
-const restoreOriginalUri = async (_oktaAuth: OktaAuth, originalUri: string) => {
-    window.location.replace(originalUri);
-};
 
 const MainApp = () => {
     const location = useLocation();
@@ -26,7 +20,7 @@ const MainApp = () => {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/signup" element={<SignUp/>} />
-                <Route path="/login" element={<LoginWidget config={OktaConfig} />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
             {showNavbarAndFooter && <Footer />}
         </>
@@ -36,11 +30,9 @@ const MainApp = () => {
 export const App = () => {
     return (
         <BrowserRouter>
-            <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
-                <div>
-                    <MainApp />
-                </div>
-            </Security>
+            <div>
+                <MainApp />
+            </div>
         </BrowserRouter>
     );
 };
